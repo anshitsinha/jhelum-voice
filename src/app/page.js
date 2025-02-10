@@ -148,30 +148,23 @@ export default function Home() {
   const [answers, setAnswers] = useState([])
   const [customAnswers, setCustomAnswers] = useState({})
   const [selectedOption, setSelectedOption] = useState(null)
-  const [timeLeft, setTimeLeft] = useState(180) // Starting time in seconds for the whole survey
   const [surveyStarted, setSurveyStarted] = useState(false)
   const [surveyCompleted, setSurveyCompleted] = useState(false)
 
-  // Handle answer selection
   const handleAnswer = (option) => {
     setSelectedOption(option)
   }
 
-  // Decrease time left after each question
   const handleNext = () => {
     if (selectedOption) {
       setAnswers([...answers, selectedOption])
       setCustomAnswers({ ...customAnswers, [currentQuestion]: customAnswers[currentQuestion] })
       setSelectedOption(null)
-
-      // Reduce the time left by the estimated time for this question
-      setTimeLeft(timeLeft - questions[currentQuestion].estimatedTime)
     }
     
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1)
     } else {
-      // Once the survey is done, show the end screen
       setSurveyCompleted(true)
     }
   }
@@ -183,7 +176,6 @@ export default function Home() {
   }
 
   const handleSubmit = () => {
-    // Final survey submission
     console.log('Survey answers:', answers)
     console.log('Custom answers:', customAnswers)
     setSurveyCompleted(true)
@@ -239,15 +231,15 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex justify-between items-center" style={{ minHeight: '60px' }}> {/* Fixed height for button container */}
+          <div className="flex justify-between items-center" style={{ minHeight: '60px' }}>
             <div className="w-1/3">
               <button className="bg-gray-500 text-white py-2 px-4 rounded-lg" onClick={handlePrevious} disabled={currentQuestion === 0}>
                 Previous
               </button>
             </div>
 
-            <div className="w-1/3 flex items-center space-x-4 justify-center">
-              <div className="text-lg text-gray-600">Time Left: {timeLeft}s</div>
+            <div className="w-1/3 flex justify-center">
+              {/* Progress Bar */}
               <div className="w-full bg-gray-300 rounded-full h-2">
                 <div
                   className="bg-blue-600 h-2 rounded-full"
