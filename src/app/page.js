@@ -88,7 +88,7 @@ const questions = [
   },
   {
     question:
-    "What do you think about having a monthly state-based special dinner to celebrate India's cultural diversity?",
+      "What do you think about having a monthly state-based special dinner to celebrate India's cultural diversity?",
     options: [
       "I think it's a great idea and should be a regular event",
       "It's a nice idea, but should be occasional",
@@ -185,8 +185,6 @@ export default function Home() {
     }
   };
 
-
-
   const handleCustomChange = (e) => {
     const value = e.target.value;
     setCustomAnswers({ ...customAnswers, [currentQuestion]: value });
@@ -221,7 +219,6 @@ export default function Home() {
     setSubmitting(false);
   };
 
-
   const progressPercentage = (currentQuestion / questions.length) * 100;
 
   return (
@@ -234,13 +231,14 @@ export default function Home() {
               Mess Transparency Survey
             </h1>
             <p className="text-lg mb-6 text-gray-700">
-              Your feedback is crucial to improving the mess services for all
-              residents. Help us ensure fairness, transparency, and a diverse menu.
-              Please take a moment to share your thoughts.
+              Please take a minute to fill out this anonymous form. I’ll be
+              building my manifesto around the issues you share, and once I have
+              your mandate, I’ll start working with the mess committee to make
+              things better for all of us.
             </p>
             <p className="text-lg mb-6 text-gray-600">
               Estimated time to complete:{" "}
-              <span className="font-semibold text-gray-800">3 minutes</span>
+              <span className="font-semibold text-gray-800">1 minute</span>
             </p>
             <button
               className="bg-blue-700 text-white py-3 px-6 rounded-lg text-lg font-semibold transition duration-300 transform hover:bg-blue-800 hover:scale-105"
@@ -250,7 +248,7 @@ export default function Home() {
             </button>
           </div>
         )}
-  
+
         {/* Survey Questions */}
         {surveyStarted && !surveyCompleted && (
           <>
@@ -283,7 +281,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-  
+
             {/* Navigation and Progress */}
             <div className="flex justify-between items-center mt-8">
               <div className="w-1/3">
@@ -295,7 +293,7 @@ export default function Home() {
                   Previous
                 </button>
               </div>
-  
+
               <div className="w-1/3 flex justify-center">
                 <div className="w-full bg-gray-300 rounded-full h-2">
                   <div
@@ -304,7 +302,7 @@ export default function Home() {
                   ></div>
                 </div>
               </div>
-  
+
               <div className="w-1/3 flex justify-end">
                 <button
                   className="bg-blue-700 text-white py-3 px-6 rounded-lg text-lg font-semibold transition duration-300 transform hover:bg-blue-800 hover:scale-105"
@@ -316,7 +314,7 @@ export default function Home() {
             </div>
           </>
         )}
-  
+
         {/* Survey Completion */}
         {surveyCompleted && (
           <div className="text-center">
@@ -324,7 +322,7 @@ export default function Home() {
               Survey Complete!
             </h1>
             <p className="text-lg text-gray-600">
-              Thank you for your valuable feedback. Your responses will help us
+              Thank you for your valuable input. Your responses will help us
               make the mess better for everyone!
             </p>
             <button
@@ -339,5 +337,4 @@ export default function Home() {
       </div>
     </div>
   );
-  
 }
