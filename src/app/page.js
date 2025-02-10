@@ -31,26 +31,16 @@ const questions = [
   },
   {
     question:
-      "How do you feel about paying extra for bulk ingredients, like paying ₹7 for an egg when the market rate for bulk purchases is ₹6?",
+      "How do you feel about paying above the market rates for additional items, ₹7 for an egg when the bulk market rate is ₹6?",
     options: [
-      "Annoying",
+      "Prefer better negotiation with vendor to keep costs low",
       "Never realized it before",
       "Acceptable if justified",
     ],
     customOption: "Other (please specify)",
     estimatedTime: 30,
   },
-  {
-    question: "What’s a fair way to ensure transparency in mess expenses?",
-    options: [
-      "Weekly reports",
-      "WhatsApp updates",
-      "Notice board updates",
-      "Meetings",
-    ],
-    customOption: "Other (please specify)",
-    estimatedTime: 40,
-  },
+
   {
     question:
       "Have you ever avoided the mess food because it was too repetitive?",
@@ -141,9 +131,8 @@ const questions = [
   },
 
   {
-    question:
-      "What’s the one thing you’d change about the mess if given the chance?",
-    options: ["Open-ended"],
+    question: "What’re the things you’d like changed about the mess?",
+    options: ["Share any suggestions"],
     customOption: "Other (please specify)",
     estimatedTime: 40,
   },
@@ -228,13 +217,10 @@ export default function Home() {
         {!surveyStarted && (
           <div className="text-center">
             <h1 className="text-4xl font-extrabold mb-6 text-blue-700">
-              Mess Transparency Survey
+              Mess Issues
             </h1>
             <p className="text-lg mb-6 text-gray-700">
-              Please take a minute to fill out this anonymous form. I’ll be
-              building my manifesto around the issues you share, and once I have
-              your mandate, I’ll start working with the mess committee to make
-              things better for all of us.
+            Please take a minute to fill out this anonymous form. Your input will help shape my manifesto, and with your support, I&apos;ll work with the mess committee to improve things for all of us.
             </p>
             <p className="text-lg mb-6 text-gray-600">
               Estimated time to complete:{" "}
@@ -319,7 +305,7 @@ export default function Home() {
         {surveyCompleted && (
           <div className="text-center">
             <h1 className="text-4xl font-extrabold text-blue-700 mb-6">
-              Survey Complete!
+              Great!
             </h1>
             <p className="text-lg text-gray-600">
               Thank you for your valuable input. Your responses will help us
@@ -330,7 +316,7 @@ export default function Home() {
               onClick={handleSubmit}
               disabled={submitting}
             >
-              {submitting ? "Submitting..." : "Submit Survey"}
+              {submitting ? "Submitting..." : "Submit"}
             </button>
           </div>
         )}
